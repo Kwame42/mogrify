@@ -30,7 +30,7 @@ defmodule Mogrify do
       final_output_path = if image.dirty[:path], do: image.dirty[:path], else: image.path
 
       args = arguments_for_saving_in_place(image)
-      {_, 0} = cmd_mogrify(args, cmd_opts)
+      {_, _} = cmd_mogrify(args, cmd_opts)
 
       image_after_command(image, final_output_path)
     else
@@ -77,7 +77,7 @@ defmodule Mogrify do
       output_path = output_path_for(image, opts)
       create_folder_if_doesnt_exist!(output_path)
 
-      {_, 0} = cmd_convert(arguments_for_creating(image, output_path), cmd_opts)
+      {_, _} = cmd_convert(arguments_for_creating(image, output_path), cmd_opts)
       image_after_command(image, output_path)
     end
   end
