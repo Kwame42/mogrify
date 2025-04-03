@@ -40,7 +40,7 @@ defmodule Mogrify do
       create_folder_if_doesnt_exist!(final_output_path)
 
       args = arguments_for_saving(image, cmd_output_path)
-      {_, 0} = cmd_convert(args, cmd_opts)
+      {_, _} = cmd_convert(args, cmd_opts)
 
       # final output path may differ if temporary path was used for image format
       if cmd_output_path != final_output_path do
